@@ -1,0 +1,128 @@
+<html>
+<head><meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+<title>Predictor</title>
+<style>
+body{
+	background: linear-gradient(to top right, #00cc99 0%, #000066 71%);
+}
+a{
+	color:white;
+}
+input[type=submit]{
+	align:center;
+	width:20%;
+	font-size:15px;
+	padding: 8px 8px;
+	margin:8px 0;
+	background-image: linear-gradient(white,#d9d9d9);
+}
+#f{
+	position:absolute;
+	top:50%;
+	left:50%;
+	transform: translate(-50%,-50%);
+	width:550px;
+	height:590px;
+	box-sizing: border-box;
+	background: rgba(0,0,0,0.4);
+	padding:40px;
+	font-size:15px;
+}
+.gd{
+	width:75%;
+	padding:6px;
+	font-size:15px;
+	background-image: linear-gradient(white,#d9d9d9);
+}
+#sign{
+	position: absolute;
+	bottom: 8px;
+	right: 8px;
+	font-size: 10px;
+}
+</style>
+
+</head>
+<body text="white" style="font-family:verdana">
+<div id="f">
+<form action="{{ url_for('predict') }}" method="post">
+<table width="100%" align="center">
+<tr>
+	<td valign="center" width="20%"><hr style="height:5px; border-width:0; color:white; background-color:white"></td>
+	<td width="60%"><h1 align="center" style="font-family:Cambria">Loan Predictor</h1></td>
+	<td valign="center" width="20%"><hr style="height:5px; border-width:0; color:white; background-color:white"></td>
+</tr>
+</table>
+<br><table width="100%" align="center" cellpadding="3">
+<tbody>
+<tr>
+	<td width="60%" valign="center">Enter Gender</td>
+	<td width="40%" align="center">
+	<select name="gender" class="gd">
+		<option value="m">Male</option>
+		<option value="f">Female</option>
+	</select></td>
+</tr>
+<tr>
+	<td width="60%" valign="center">Enter married or not</td>
+	<td width="40%" align="center">
+	<select name="married" class="gd">
+		<option value="y">Yes</option>
+		<option value="n">No</option>
+	</select></td>
+</tr>
+<tr>
+	<td width="60%" valign="center">Enter Dependents</td>
+	<td width="40%" align="center">
+	<select name="dependents" class="gd">
+		<option value="z">0</option>
+		<option value="o">1</option>
+		<option value="t">2</option>
+		<option value="th">3</option>
+	</select></td>
+</tr>
+<tr>
+	<td width="60%" valign="center">Enter Education status</td>
+	<td width="40%" align="center">
+	<select name="education" class="gd">
+		<option value="g">Graduate</option>
+		<option value="ng">Not Graduate</option>
+	</select></td>
+</tr>
+<tr>
+	<td width="60%" valign="center">Enter if self-employed or not</td>
+	<td width="40%" align="center">
+	<select name="self_employed" class="gd">
+		<option value="y">Yes</option>
+		<option value="n">No</option>
+	</select></td>
+</tr>
+<tr>
+	<td width="60%" valign="center">Enter Credit history</td>
+	<td width="40%" align="center">
+	<select name="cr_history" class="gd">
+		<option value="y">1</option>
+		<option value="n">0</option>
+	</select></td>
+</tr>
+<tr>
+	<td width="60%" valign="center">Enter Property area</td>
+	<td width="40%" align="center">
+	<select name="property_area" class="gd">
+		<option value="u">Urban</option>
+		<option value="su">Semiurban</option>
+		<option value="r">Rural</option>
+	</select></td>
+</tr>
+</tbody></table>
+<br>
+<div align="center">
+<input type="submit" align="center"></div>
+<br>
+</form>
+<h3><b>{{ prediction_text }}</b></h3>
+<a href="{{ url_for('home') }}">Go back to home page</a>
+</div>
+
+
+</body></html>
